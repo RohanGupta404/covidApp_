@@ -39,6 +39,42 @@ def sendMail(recMail, message):
     server.login(senderMail, password)
     print("login successful")
     server.sendmail(senderMail, recMail, message)
+import mysql.connector as A
+database = A.connect(host='localhost',database='v123',username='root',passwd='#ello')
+if database.is_connected():
+    print('Main Databse is Succesfully Connected')
+else:
+    print('Database Not Connected')
+c=database.cursor()
+try:
+    c.execute('Create Table Login_Info(ID decimal(30),User_ID decimal(30),Name char(30),Email_ID Char(30),Password char(50),Phone_No decimal(12),Bio text(500),Address text(500),Land_Mark text(50))')
+    print('Database 1 Created')
+except:
+    print('Database 1 Retrived')
+def Login_Info():
+    print('*#*#*#* Login Page *#*#*#*')
+    print()
+    n=input('ID : ')
+    p=int(input('User_ID : '))
+    Na=input('Name : ')
+    EI=input('Enter Emil ID OF The Customer : ')
+    PW=input('Password : ')
+    CID=input('Phone No : ')
+    CI=input('Bio : ')
+    C_O=input('Address : ')
+    NLM=input('Nearest Landmark : ')
+    t=(n,p,Na,EI,PW,CID,CI,C_O,NLM)
+    print("('ID','User_ID','Name','Email_ID','Password','Phone_No','Bio','Address','Land_Mark')")
+    print(t)
+    s='Insert into Login_Info values(%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+    c.execute(s,t)
+    database.commit()
+    print()
+    print('Successfully Checked-In')
+    print()
+    print('#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#')
+    print()
+Login_Info()
 
 
 
