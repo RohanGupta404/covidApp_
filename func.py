@@ -38,8 +38,4 @@ def sendMail(recMail, message):
     server.sendmail(senderMail, recMail, message)
 
 
-import requests
-r=requests.get('https://ipinfo.io/')
-print(r.text)
-
 
