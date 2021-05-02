@@ -4,6 +4,7 @@ import hashlib
 mydb = 0
 
 
+# This function will be used to call the database
 def callDatabase():
     import mysql.connector
 
@@ -13,6 +14,7 @@ def callDatabase():
                                    passwd="Alooboy47")
 
 
+# This function will add a new user(seller) to the database
 def newUserLogin(email, password, name, phoneNumber, bio, address):
     userid = random.randint(1000000000000000, 9999999999999999)
     newPassword = hashlib.sha256(b"rohan").hexdigest()
@@ -25,6 +27,7 @@ def newUserLogin(email, password, name, phoneNumber, bio, address):
     mydb.commit()
 
 
+# This function will send e-mail
 def sendMail(recMail, message):
     import smtplib
 
