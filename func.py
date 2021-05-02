@@ -40,33 +40,31 @@ def sendMail(recMail, message):
     print("login successful")
     server.sendmail(senderMail, recMail, message)
 import mysql.connector as A
-database = A.connect(host='localhost',database='v123',username='root',passwd='#ello')
+database = A.connect(host='localhost',database='c1234',username='root',passwd='#ello')
 if database.is_connected():
     print('Main Databse is Succesfully Connected')
 else:
     print('Database Not Connected')
 c=database.cursor()
 try:
-    c.execute('Create Table Login_Info(ID decimal(30),User_ID decimal(30),Name char(30),Email_ID Char(30),Password char(50),Phone_No decimal(12),Bio text(500),Address text(500),Land_Mark text(50))')
+    c.execute('Create Table ProductInfo(ID bigint primary key auto_increment,Product_ID bigint,User_ID bigint,Product_type varchar(50),Quantity int,Product_Description text(500),Address text(500))')
     print('Database 1 Created')
 except:
     print('Database 1 Retrived')
-def Login_Info():
-    print('*#*#*#* Login Page *#*#*#*')
+def ProductInfo():
+    print('*#*#*#* Product Page *#*#*#*')
     print()
     n=input('ID : ')
-    p=int(input('User_ID : '))
-    Na=input('Name : ')
-    EI=input('Enter Emil ID OF The Customer : ')
-    PW=input('Password : ')
-    CID=input('Phone No : ')
-    CI=input('Bio : ')
-    C_O=input('Address : ')
-    NLM=input('Nearest Landmark : ')
-    t=(n,p,Na,EI,PW,CID,CI,C_O,NLM)
-    print("('ID','User_ID','Name','Email_ID','Password','Phone_No','Bio','Address','Land_Mark')")
+    p=int(input('Product ID : '))
+    EI=input('User ID : ')
+    RT=input('Product Type : ')
+    CID=input('Quantity : ')
+    CI=input('Product Description : ')
+    RP=input('Address : ')
+    t=(n,p,EI,RT,CID,CI,RP)
+    print("('ID','Product_ID','User_ID','Product_type','Quantity','Product_Description','Address')")
     print(t)
-    s='Insert into Login_Info values(%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+    s='Insert into ProductInfo values(%s,%s,%s,%s,%s,%s,%s)'
     c.execute(s,t)
     database.commit()
     print()
@@ -74,7 +72,8 @@ def Login_Info():
     print()
     print('#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#')
     print()
-Login_Info()
+
+
 
 
 
