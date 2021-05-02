@@ -1,15 +1,12 @@
 #: import utils kivy.utils
 
 <HomeScreen>:
-    FloatLayout:
+    canvas:
+        Color:
+            rgb: utils.get_color_from_hex("22EACA")
+        Rectangle:
+            size: self.size
+            pos: self.pos
 
-        canvas:
-            Color:
-                rgb: utils.get_color_from_hex("22EACA")
-            Rectangle:
-                size: self.size
-                pos: self.pos
-
-        Label:
-            size_hint: 0.3, 1
-            text: "Hello World"
+    Label:
+        text: "Hello World"
