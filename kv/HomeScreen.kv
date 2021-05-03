@@ -11,6 +11,18 @@
                 pos: self.pos
 
         GridLayout:
+            rows: 2
+            Button:
+                text: "Rohan Code"
+                on_release:
+                    app.change_screen("rohanCode")
+
+            Button:
+                text: "Shashwat Code"
+                on_release:
+                    app.change_screen("shashwatCode")
+
+        GridLayout:
             canvas:
                 Color:
                     rgb: utils.get_color_from_hex("2097F3")

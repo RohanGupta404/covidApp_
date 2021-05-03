@@ -10,18 +10,23 @@ from kivy.uix.boxlayout import BoxLayout
 class HomeScreen(Screen):
     pass
 
+
 class NeedHelp(Screen):
     pass
+
 
 class rohanCode(Screen):
     pass
 
+
 class shashwatCode(Screen):
     pass
+
 
 # class for functions
 class ImageButton(ButtonBehavior, Image):
     pass
+
 
 GUI = Builder.load_file('main.kv')
 
