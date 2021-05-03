@@ -13,6 +13,11 @@ class HomeScreen(Screen):
 class NeedHelp(Screen):
     pass
 
+class rohanCode(Screen):
+    pass
+
+class shashwatCode(Screen):
+    pass
 
 # class for functions
 class ImageButton(ButtonBehavior, Image):
