@@ -5,6 +5,7 @@ from kivy.uix.button import ButtonBehavior
 from kivy.uix.image import Image
 from kivy.uix.dropdown import DropDown
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.gridlayout import GridLayout
 
 
 class HomeScreen(Screen):
@@ -26,6 +27,12 @@ class shashwatCode(Screen):
 # class for functions
 class ImageButton(ButtonBehavior, Image):
     pass
+
+
+# then make a clickable grid
+class GridButton(GridLayout, ButtonBehavior):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
 
 GUI = Builder.load_file('main.kv')
