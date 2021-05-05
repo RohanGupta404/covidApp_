@@ -1,0 +1,33 @@
+#: import utils kivy.utils
+
+<ProductPage>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("CAAFAA")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        GridLayout:
+            rows:2
+            pos_hint:{"top": .75,"right":.7}
+            size_hint:.4,.4
+            Image:
+                source: "pics/EM.jpeg"
+        GridLayout:
+            rows:2
+            pos_hint:{"top": 1.1,"right":1}
+            size_hint:1,.5
+            Image:
+                source: "pics/Oxygen Cylinder.jpeg"
+        GridLayout:
+            cols: 2
+            pos_hint: {"top": .25, "right": .8}
+            size_hint: .6, .06
+
+            Label:
+                color: 0, 0, 0, 1
+                size_hint: 0.5, 1
+                font_size: '18sp'
+                size_hint: 1, .6
+                text: "NAME OF SELLER : Melon Husk\nPRODUCT NAME : Oxygen\nPRODUCT TYPE : Utility\nQUANTITY : 1k\nPRODUCT DESCRIPTION : Breathe this and Save your\nfucking lives\nPRODUCT ADDRESS :Wherever the hell you want\nit to be \nLANNDMARK :Told You Already \nSELLER PHONE NO. :Mail it on tesla@husk.com"
