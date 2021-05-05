@@ -12,27 +12,45 @@ class HomeScreen(Screen):
     pass
 
 
-class NeedHelp(Screen):
+class ProductPage(Screen):
     pass
 
 
-class rohanCode(Screen):
+class HaveHelp(Screen):
     pass
 
 
-class shashwatCode(Screen):
+class ProductAddPage(Screen):
+    pass
+
+
+class ProductEditDeletePage(Screen):
+    pass
+
+
+class AccountLoginPage(Screen):
+    pass
+
+
+class AccountDetailPage(Screen):
+    pass
+
+
+class AccountSignupPage(Screen):
+    pass
+
+
+class EditAccountPage(Screen):
+    pass
+
+
+class OTPConfirmPage(Screen):
     pass
 
 
 # class for functions
 class ImageButton(ButtonBehavior, Image):
     pass
-
-
-# then make a clickable grid
-class GridButton(GridLayout, ButtonBehavior):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 GUI = Builder.load_file('main.kv')
