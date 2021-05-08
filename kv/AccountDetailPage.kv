@@ -13,9 +13,15 @@
             pos_hint:{"top": 1,"right":1}
             size_hint:1,.4
             ImageButton:
+                size_hint: 1, 1
                 source: "pics/EM.jpeg"
                 on_release:
                     print("OPENS SELLER's IMAGE")
+            Button:
+                size_hint: 1, .2
+                text: "Edit Account"
+                on_release:
+                    app.change_screen("EditAccountPage")
         GridLayout:
 
             cols: 2
