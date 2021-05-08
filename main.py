@@ -6,6 +6,7 @@ from kivy.uix.image import Image
 from kivy.uix.dropdown import DropDown
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
+import func
 
 
 class HomeScreen(Screen):

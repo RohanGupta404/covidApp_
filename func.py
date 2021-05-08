@@ -15,7 +15,7 @@ def callDatabase():
 
 
 # This function will add a new user(seller) to the database
-def newUserLogin(email, password, name, phoneNumber, bio, address, landmark):
+def newUserSignup(email, password, name, phoneNumber, bio, address, landmark):
     userid = random.randint(1000000000000000, 9999999999999999)
     newPassword = hashlib.sha256(password).hexdigest()
 
