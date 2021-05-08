@@ -1,0 +1,105 @@
+#: import utils kivy.utils
+
+<AccountSignupPage>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("FFFFFF")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        GridLayout:
+            cols: 3
+            pos_hint: {"top": .9, "left": 1.4}
+            size_hint: 1, .7
+            Label:
+                text: ""
+                size_hint: .08, 1
+            GridLayout:
+                canvas:
+                    Color:
+                        rgb: utils.get_color_from_hex("2097F3")
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                rows: 8
+                padding: 40
+                spacing: 20
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Name: "
+                    TextInput:
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Email: "
+                    TextInput:
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Phone Number: "
+                    TextInput:
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Address: "
+                    TextInput:
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Landmark: "
+                    TextInput:
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Password: "
+                    TextInput:
+                        password: True
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Confirm Password: "
+                    TextInput:
+                        password: True
+                GridLayout:
+                    cols: 2
+                    spacing: 20
+                    Button:
+                        text: "Login"
+                        on_release:
+                            app.change_screen("AccountLoginPage")
+                    Button:
+                        text: "submit"
+                        on_release:
+                            app.change_screen("OTPConfirmPage")
+            Label:
+                text: ""
+                size_hint: .08, 1
+
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("2097F3")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            cols: 3
+            pos_hint: {"top": .10, "left": 1.4}
+            size_hint: 1, .1
+
+            GridLayout:
+                cols: 3
+                Button:
+                    text: "Home"
+                    on_release:
+                        app.change_screen("HomeScreen")
+                Button:
+                    text: "Have Help"
+                    on_release:
+                        app.change_screen("HaveHelp")
+                Button:
+                    text: "Account"
+                    on_release:
+                        app.change_screen("AccountLoginPage")

@@ -1,0 +1,117 @@
+#: import utils kivy.utils
+
+<ProductAddPage>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("FFFFFF")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        GridLayout:
+            cols: 3
+            pos_hint: {"top": .9, "left": 1.4}
+            size_hint: 1, .7
+            Label:
+                text: ""
+                size_hint: .08, 1
+            GridLayout:
+                canvas:
+                    Color:
+                        rgb: utils.get_color_from_hex("2097F3")
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                rows: 8
+                padding: 40
+                spacing: 20
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Name: "
+                    TextInput:
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Description: "
+                    TextInput:
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Product Type: "
+                    DropDown:
+                        auto_dismiss: False
+                        size_hint: 1, .8
+                        Button:
+                            text: "Bed"
+                            size_hint_y: None
+                            height: 26
+                        Button:
+                            text: "Oxygen"
+                            size_hint_y: None
+                            height: 26
+                        Button:
+                            text: "Medicen"
+                            size_hint_y: None
+                            height: 26
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Quantity: "
+                    TextInput:
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Address: "
+                    DropDown:
+                        auto_dismiss: False
+                        size_hint: 1, .8
+                        Button:
+                            text: "Orignal Address"
+                            size_hint_y: None
+                            height: 26
+                        TextInput:
+                            size_hint_y: None
+                            height: 26
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Landmark: "
+                    TextInput:
+                GridLayout:
+                    cols: 1
+                    spacing: 20
+                    Button:
+                        text: "submit"
+                        on_release:
+                            app.change_screen("HaveHelp")
+            Label:
+                text: ""
+                size_hint: .08, 1
+
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("2097F3")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            cols: 3
+            pos_hint: {"top": .10, "left": 1.4}
+            size_hint: 1, .1
+
+            GridLayout:
+                cols: 3
+                Button:
+                    text: "Home"
+                    on_release:
+                        app.change_screen("HomeScreen")
+                Button:
+                    text: "Have Help"
+                    on_release:
+                        app.change_screen("HaveHelp")
+                Button:
+                    text: "Account"
+                    on_release:
+                        app.change_screen("AccountLoginPage")

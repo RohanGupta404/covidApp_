@@ -1,0 +1,54 @@
+#: import utils kivy.utils
+
+<AccountDetailPage>:
+    FloatLayout:
+
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("FFFFFF")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("2097F3")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            cols: 2
+            pos_hint: {"top": 1, "left": 1.4}
+            size_hint: 1, .1
+            Label:
+                text: "AccountDetailPage"
+            Button:
+                text: "Edit Account"
+                on_release:
+                    app.change_screen("EditAccountPage")
+
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("2097F3")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            cols: 3
+            pos_hint: {"top": .10, "left": 1.4}
+            size_hint: 1, .1
+
+            GridLayout:
+                cols: 3
+                Button:
+                    text: "Home"
+                    on_release:
+                        app.change_screen("HomeScreen")
+                Button:
+                    text: "Have Help"
+                    on_release:
+                        app.change_screen("HaveHelp")
+                Button:
+                    text: "Account"
+                    on_release:
+                        app.change_screen("AccountLoginPage")

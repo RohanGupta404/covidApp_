@@ -1,0 +1,148 @@
+#: import utils kivy.utils
+
+<HaveHelp>:
+    FloatLayout:
+
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("FFFFFF")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+
+
+
+        GridLayout:
+            cols: 3
+            pos_hint: {"top": 0.85, "left": 1}
+            size_hint: 1, 0.55
+            Label:
+                size_hint: 0.1, 0.35
+                text: ""
+            DropDown:
+                auto_dismiss: False
+                pos_hint: {"top": 0.7, "left": 1}
+                size_hint: 1, 0.3
+                GridLayout:
+                    cols: 2
+                    size_hint_y: None
+                    height: 60
+                    Button:
+                        text: "NAME:        Rohan Gupta\nPRODUCT:      Bed\nDISTANCE:    12Km"
+                    Button:
+                        size_hint: .2, 1
+                        text: "Edit"
+                        on_release:
+                            app.change_screen("ProductEditDeletePage")
+                GridLayout:
+                    cols: 2
+                    size_hint_y: None
+                    height: 60
+                    Button:
+                        text: "NAME:        \nPRODUCT:      \nDISTANCE:    "
+                    Button:
+                        size_hint: .2, 1
+                        text: "Edit"
+                        on_release:
+                            app.change_screen("ProductEditDeletePage")
+                GridLayout:
+                    cols: 2
+                    size_hint_y: None
+                    height: 60
+                    Button:
+                        text: "NAME:        \nPRODUCT:      \nDISTANCE:    "
+                    Button:
+                        size_hint: .2, 1
+                        text: "Edit"
+                        on_release:
+                            app.change_screen("ProductEditDeletePage")
+                GridLayout:
+                    cols: 2
+                    size_hint_y: None
+                    height: 60
+                    Button:
+                        text: "NAME:        \nPRODUCT:      \nDISTANCE:    "
+                    Button:
+                        size_hint: .2, 1
+                        text: "Edit"
+                        on_release:
+                            app.change_screen("ProductEditDeletePage")
+                GridLayout:
+                    cols: 2
+                    size_hint_y: None
+                    height: 60
+                    Button:
+                        text: "NAME:        \nPRODUCT:      \nDISTANCE:    "
+                    Button:
+                        size_hint: .2, 1
+                        text: "Edit"
+                        on_release:
+                            app.change_screen("ProductEditDeletePage")
+                GridLayout:
+                    cols: 2
+                    size_hint_y: None
+                    height: 60
+                    Button:
+                        text: "NAME:        \nPRODUCT:      \nDISTANCE:    "
+                    Button:
+                        size_hint: .2, 1
+                        text: "Edit"
+                        on_release:
+                            app.change_screen("ProductEditDeletePage")
+                GridLayout:
+                    cols: 2
+                    size_hint_y: None
+                    height: 60
+                    Button:
+                        text: "NAME:        \nPRODUCT:      \nDISTANCE:    "
+                    Button:
+                        size_hint: .2, 1
+                        text: "Edit"
+                        on_release:
+                            app.change_screen("ProductEditDeletePage")
+            Label:
+                size_hint: 0.1, 0.35
+                text: ""
+
+
+        GridLayout:
+            cols: 3
+            pos_hint: {"top": 0.28, "left": 1}
+            size_hint: 1, 0.1
+            Label:
+                size_hint: 0.7, 0.35
+                text: ""
+            Button:
+                text: "+"
+                on_release:
+                    app.change_screen("ProductAddPage")
+            Label:
+                size_hint: 0.7, 0.35
+                text: ""
+
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("2097F3")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            cols: 3
+            pos_hint: {"top": .10, "left": 1.4}
+            size_hint: 1, .1
+
+            GridLayout:
+                cols: 3
+                Button:
+                    text: "Home"
+                    on_release:
+                        app.change_screen("HomeScreen")
+                Button:
+                    text: "Have Help"
+                    on_release:
+                        app.change_screen("HaveHelp")
+                Button:
+                    text: "Account"
+                    on_release:
+                        app.change_screen("AccountLoginPage")

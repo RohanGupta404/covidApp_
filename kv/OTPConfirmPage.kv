@@ -1,0 +1,72 @@
+#: import utils kivy.utils
+
+<OTPConfirmPage>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("FFFFFF")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        GridLayout:
+            cols: 3
+            pos_hint: {"top": .86, "left": 1.4}
+            size_hint: 1, .4
+            Label:
+                text: ""
+                size_hint: .08, 1
+            GridLayout:
+                canvas:
+                    Color:
+                        rgb: utils.get_color_from_hex("2097F3")
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                rows: 2
+                padding: 40
+                spacing: 70
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "OTP: "
+                    TextInput:
+                        password: True
+                GridLayout:
+                    cols: 2
+                    spacing: 20
+                    Button:
+                        text: "Resend OTP"
+                    Button:
+                        text: "submit"
+                        on_release:
+                            app.change_screen("AccountDetailPage")
+            Label:
+                text: ""
+                size_hint: .08, 1
+
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("2097F3")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            cols: 3
+            pos_hint: {"top": .10, "left": 1.4}
+            size_hint: 1, .1
+
+            GridLayout:
+                cols: 3
+                Button:
+                    text: "Home"
+                    on_release:
+                        app.change_screen("HomeScreen")
+                Button:
+                    text: "Have Help"
+                    on_release:
+                        app.change_screen("HaveHelp")
+                Button:
+                    text: "Account"
+                    on_release:
+                        app.change_screen("AccountLoginPage")
