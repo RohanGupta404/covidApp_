@@ -2,31 +2,40 @@
 
 <AccountDetailPage>:
     FloatLayout:
-
         canvas:
             Color:
-                rgb: utils.get_color_from_hex("FFFFFF")
+                rgb: utils.get_color_from_hex("CAAFAA")
             Rectangle:
                 size: self.size
                 pos: self.pos
-
         GridLayout:
-            canvas:
-                Color:
-                    rgb: utils.get_color_from_hex("2097F3")
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            cols: 2
-            pos_hint: {"top": 1, "left": 1.4}
-            size_hint: 1, .1
-            Label:
-                text: "AccountDetailPage"
-            Button:
-                text: "Edit Account"
+            rows:2
+            pos_hint:{"top": 1,"right":1}
+            size_hint:1,.4
+            ImageButton:
+                source: "pics/EM.jpeg"
                 on_release:
-                    app.change_screen("EditAccountPage")
+                    print("OPENS SELLER's IMAGE")
+        GridLayout:
 
+            cols: 2
+            pos_hint: {"top": .5, "right": .8}
+            size_hint: .6, .06
+
+            Label:
+                color: 0, 0, 0, 1
+                size_hint: 0.5, 1
+                font_size: '18sp'
+                size_hint: 1, .6
+                text: "NAME OF SELLER : Melon Husk\nEMAIL : tesla@husk.com\nPHONE NO. : 12345678\nADDRESS : YOUR FUCKING DOORSTEPS"
+        GridLayout:
+            rows:1
+            pos_hint:{"top": .3,"right":.72}
+            size_hint:1,.1
+            ImageButton:
+                source:"pics/LO.jpeg"
+                on_release:
+                    print("LOGOUT")
         GridLayout:
             canvas:
                 Color:
