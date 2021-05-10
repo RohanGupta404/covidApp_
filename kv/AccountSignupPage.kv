@@ -23,44 +23,65 @@
                     Rectangle:
                         size: self.size
                         pos: self.pos
-                rows: 8
+                rows: 9
                 padding: 40
-                spacing: 20
+                spacing: 10
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Name: "
                     TextInput:
+                        id: accountName
+                        name: "accountName"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Email: "
                     TextInput:
+                        id: accountEmail
+                        name: "accountEmail"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Phone Number: "
                     TextInput:
+                        id: accountPhoneNumber
+                        name: "accountPhoneNumber"
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text: "Bio: "
+                    TextInput:
+                        id: accountBio
+                        name: "accountBio"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Address: "
                     TextInput:
+                        id: accountAddress
+                        name: "accountAddress"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Landmark: "
                     TextInput:
+                        id: accountLandmark
+                        name: "accountLandmark"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Password: "
                     TextInput:
                         password: True
+                        id: accountPassword
+                        name: "accountPassword"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Confirm Password: "
+                        id: accountConfirmPassword
+                        name: "accountConfirmPassword"
                     TextInput:
                         password: True
                 GridLayout:
@@ -73,7 +94,7 @@
                     Button:
                         text: "submit"
                         on_release:
-                            app.change_screen("OTPConfirmPage")
+                            app.signupNewAccount()
             Label:
                 text: ""
                 size_hint: .08, 1

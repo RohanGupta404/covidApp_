@@ -32,6 +32,8 @@
                         text: "OTP: "
                     TextInput:
                         password: True
+                        id: accountOTP
+                        name: "accountOTP"
                 GridLayout:
                     cols: 2
                     spacing: 20
@@ -40,7 +42,7 @@
                     Button:
                         text: "submit"
                         on_release:
-                            app.change_screen("AccountDetailPage")
+                            app.CheckEmailAddAccount()
             Label:
                 text: ""
                 size_hint: .08, 1

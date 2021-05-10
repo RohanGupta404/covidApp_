@@ -31,12 +31,16 @@
                     Label:
                         text: "Email: "
                     TextInput:
+                        id: AccountLoginEmail
+                        name: "AccountLoginEmail"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Password: "
                     TextInput:
                         password: True
+                        id: AccountLoginPassword
+                        name: "AccountLoginPassword"
                 GridLayout:
                     cols: 2
                     spacing: 5
@@ -47,7 +51,7 @@
                     Button:
                         text: "submit"
                         on_release:
-                            app.change_screen("AccountDetailPage")
+                            app.LoginEmailPasswordCheck()
             Label:
                 text: ""
                 size_hint: .08, 1
