@@ -57,6 +57,7 @@ class ImageButton(ButtonBehavior, Image):
 
 GUI = Builder.load_file('main.kv')
 
+accountUserID = False
 
 class MainApp(App):
     def build(self):
