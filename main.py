@@ -96,6 +96,7 @@ class MainApp(App):
             accountUserID = func.newUserSignup(accountEmail, accountPassword, accountName, accountPhoneNumber,
                                                accountBio,
                                                accountAddress, accountLandmark)
+            MainApp.updateAcountDetialUI(self)
             MainApp.change_screen(self, "AccountDetailPage")
         else:
             print("wrong OTP")
@@ -112,7 +113,13 @@ class MainApp(App):
             self.root.ids["AccountLoginPage"].ids["AccountLoginEmail"].text = ""
             self.root.ids["AccountLoginPage"].ids["AccountLoginPassword"].text = ""
         else:
+            MainApp.updateAcountDetialUI(self)
             MainApp.change_screen(self, "AccountDetailPage")
 
+    def updateAcountDetialUI(self):
+        if accountUserId!=False:
+            UserUIInfo=func.UpdateAccountDetails(accountUserId)
+            accountDetailText = f"NAME OF SELLER : {UserUIInfo[0]}\nEMAIL : {UserUIInfo[1]}\nPHONE NO. : {UserUIInfo[2]}\nADDRESS : {UserUIInfo[3]}"
+            self.root.ids["AccountDetailPage"].ids["accountDetail"].text = accountDetailText
 
 MainApp().run()

@@ -80,3 +80,11 @@ def LoginCheck(Email, Password):
     except TypeError:
         print("Email not found")
         return False
+
+
+def UpdateAccountDetails(accountUserId):
+    mycursor = mydb.cursor()
+    mycursor.execute("Use covidApp")
+    mycursor.execute(f"select Name,Email,PhoneNumber,Address from sellerInfo where userid={accountUserId} limit 1")
+    for i in mycursor:
+        return [i[0], i[1], i[2], i[3]]
