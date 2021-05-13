@@ -57,7 +57,10 @@ class ImageButton(ButtonBehavior, Image):
 
 GUI = Builder.load_file('main.kv')
 
-accountUserID = False
+# Global Variables
+accountUserId = False
+CurrentScreen = "AccountDetailPage"
+
 
 class MainApp(App):
     def build(self):
@@ -93,8 +96,8 @@ class MainApp(App):
 
         if str(OTPgenerated) == str(OTPRecieved):
             func.callDatabase()
-            global accountUserID
-            accountUserID = func.newUserSignup(accountEmail, accountPassword, accountName, accountPhoneNumber,
+            global accountUserId
+            accountUserId = func.newUserSignup(accountEmail, accountPassword, accountName, accountPhoneNumber,
                                                accountBio,
                                                accountAddress, accountLandmark)
             MainApp.updateAcountDetialUI(self)
@@ -110,17 +113,75 @@ class MainApp(App):
         func.callDatabase()
         global accountUserId
         accountUserId = func.LoginCheck(AccountLoginEmail, AccountLoginPassword)
+        self.root.ids["AccountLoginPage"].ids["AccountLoginEmail"].text = ""
+        self.root.ids["AccountLoginPage"].ids["AccountLoginPassword"].text = ""
         if not accountUserId:
-            self.root.ids["AccountLoginPage"].ids["AccountLoginEmail"].text = ""
-            self.root.ids["AccountLoginPage"].ids["AccountLoginPassword"].text = ""
+            pass
         else:
-            MainApp.updateAcountDetialUI(self)
-            MainApp.change_screen(self, "AccountDetailPage")
+            if CurrentScreen == "HaveHelp":
+                MainApp.UpdateProductListOnHaveHelp(self)
+            else:
+                MainApp.updateAcountDetialUI(self)
+            MainApp.change_screen(self, CurrentScreen)
 
     def updateAcountDetialUI(self):
-        if accountUserId!=False:
-            UserUIInfo=func.UpdateAccountDetails(accountUserId)
-            accountDetailText = f"NAME OF SELLER : {UserUIInfo[0]}\nEMAIL : {UserUIInfo[1]}\nPHONE NO. : {UserUIInfo[2]}\nADDRESS : {UserUIInfo[3]}"
-            self.root.ids["AccountDetailPage"].ids["accountDetail"].text = accountDetailText
+        if not accountUserId:
+            return None
+
+        UserUIInfo = func.UpdateAccountDetails(accountUserId)
+        accountDetailText = f"NAME OF SELLER : {UserUIInfo[0]}\nEMAIL : {UserUIInfo[1]}\nPHONE NO. : {UserUIInfo[2]}\nADDRESS : {UserUIInfo[3]}"
+        self.root.ids["AccountDetailPage"].ids["accountDetail"].text = accountDetailText
+
+    def setProductType(self, productType):
+        global ProductType
+        ProductType = productType
+
+    def addNewProduct(self):
+        if not accountUserId:
+            print("First please login")
+            return None
+
+        productAddress = self.root.ids["ProductAddPage"].ids["productAddress"].text
+        if productAddress == "":
+            productAddress = func.giveSellerAddress(accountUserId)
+
+        productType = ProductType
+        productName = self.root.ids["ProductAddPage"].ids["productName"].text
+        productDescription = self.root.ids["ProductAddPage"].ids["productDescription"].text
+        productQuantity = self.root.ids["ProductAddPage"].ids["productQuantity"].text
+        productLandmark = self.root.ids["ProductAddPage"].ids["productLandmark"].text
+
+        func.newProduct(accountUserId, productType, productQuantity, productDescription, productAddress,
+                        productLandmark, productName)
+
+        MainApp.change_screen(self, "HaveHelp")
+
+    def onClickAccount(self, screen_name):
+        global CurrentScreen
+        CurrentScreen = screen_name
+        if not accountUserId:
+            MainApp.change_screen(self, "AccountLoginPage")
+        else:
+            if CurrentScreen == "HaveHelp":
+                MainApp.UpdateProductListOnHaveHelp(self)
+            MainApp.change_screen(self, screen_name)
+
+    def AccountLogout(self):
+        global accountUserId
+        accountUserId = False
+        MainApp.change_screen(self, "AccountLoginPage")
+
+    def UpdateProductListOnHaveHelp(self):
+        if not accountUserId:
+            pass
+        else:
+            listOfProducts = func.giveProductInfo(accountUserId)
+            for productNumber in range(len(listOfProducts)):
+                product = listOfProducts[productNumber]
+                self.root.ids["HaveHelp"].ids[f"Product{str(productNumber+1)}"].text = f"NAME:    {str(product[0])}\n" \
+                                                                                     f"PRODUCT:    {str(product[1])}\n" \
+                                                                                     f"LandMark:    {str(product[2])} "
+            for i in range(productNumber+1, 10):
+                self.root.ids["HaveHelp"].ids[f"Product{str(i + 1)}"].text = "Not Available"
 
 MainApp().run()

@@ -30,14 +30,14 @@ def newUserSignup(email, password, name, phoneNumber, bio, address, landmark):
 
 
 # This function will add a new product
-def newProduct(user_id, product_type, quantity, product_description, address, landmark):
+def newProduct(user_id, product_type, quantity, product_description, address, landmark, name):
     product_id = random.randint(1000000000000000, 9999999999999999)
 
     mycursor = mydb.cursor()
     mycursor.execute("use covidApp")
     mycursor.execute(f"INSERT INTO productInfo "
-                     f"(product_id, user_id, product_type, quantity, product_description, address, landmark) VALUES "
-                     f"({product_id}, {user_id}, '{product_type}', {quantity}, '{product_description}', '{address}', '{landmark}')")
+                     f"(product_id, user_id, product_type, quantity, product_description, address, landmark, name) VALUES "
+                     f"({product_id}, {user_id}, '{product_type}', {quantity}, '{product_description}', '{address}', '{landmark}, {name}')")
     mydb.commit()
 
 
@@ -85,6 +85,23 @@ def LoginCheck(Email, Password):
 def UpdateAccountDetails(accountUserId):
     mycursor = mydb.cursor()
     mycursor.execute("Use covidApp")
-    mycursor.execute(f"select Name,Email,PhoneNumber,Address from sellerInfo where userid={accountUserId} limit 1")
+    mycursor.execute(f"SELECT Name, Email, PhoneNumber, Address FROM sellerInfo WHERE userid={accountUserId} LIMIT 1")
     for i in mycursor:
         return [i[0], i[1], i[2], i[3]]
+
+
+# Merge giveProductAddress and UpdateAccountDetails
+def giveSellerAddress(accountUserId):
+    callDatabase()
+    mycursor = mydb.cursor()
+    mycursor.execute("Use covidApp")
+    mycursor.execute(f"SELECT Address FROM sellerInfo WHERE userid={accountUserId} LIMIT 1")
+    for i in mycursor:
+        return i[0]
+
+
+def giveProductInfo(accountUserId):
+    mycursor = mydb.cursor()
+    mycursor.execute("Use covidApp")
+    mycursor.execute(f"SELECT name, Quantity, Landmark FROM productInfo WHERE User_ID={accountUserId} LIMIT 10")
+    return mycursor.fetchall()

@@ -43,7 +43,7 @@
             ImageButton:
                 source:"pics/LO.jpeg"
                 on_release:
-                    print("LOGOUT")
+                    app.AccountLogout()
         GridLayout:
             canvas:
                 Color:
@@ -64,8 +64,8 @@
                 Button:
                     text: "Have Help"
                     on_release:
-                        app.change_screen("HaveHelp")
+                        app.onClickAccount("HaveHelp")
                 Button:
                     text: "Account"
                     on_release:
-                        app.change_screen("AccountLoginPage")
+                        app.onClickAccount("AccountDetailPage")

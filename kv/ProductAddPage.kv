@@ -31,11 +31,15 @@
                     Label:
                         text: "Name: "
                     TextInput:
+                        id: productName
+                        name: "productName"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Description: "
                     TextInput:
+                        id: productDescription
+                        name: "productDescription"
                 GridLayout:
                     cols: 2
                     Label:
@@ -47,19 +51,27 @@
                             text: "Bed"
                             size_hint_y: None
                             height: 26
+                            on_release:
+                                app.setProductType("Bed")
                         Button:
                             text: "Oxygen"
                             size_hint_y: None
                             height: 26
+                            on_release:
+                                app.setProductType("Oxygen")
                         Button:
                             text: "Medicen"
                             size_hint_y: None
                             height: 26
+                            on_release:
+                                app.setProductType("Medicen")
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Quantity: "
                     TextInput:
+                        id: productQuantity
+                        name: "productQuantity"
                 GridLayout:
                     cols: 2
                     Label:
@@ -74,18 +86,22 @@
                         TextInput:
                             size_hint_y: None
                             height: 26
+                            id: productAddress
+                            name: "productAddress"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Landmark: "
                     TextInput:
+                        id: productLandmark
+                        name: "productLandmark"
                 GridLayout:
                     cols: 1
                     spacing: 20
                     Button:
                         text: "submit"
                         on_release:
-                            app.change_screen("HaveHelp")
+                            app.addNewProduct()
             Label:
                 text: ""
                 size_hint: .08, 1
@@ -110,8 +126,8 @@
                 Button:
                     text: "Have Help"
                     on_release:
-                        app.change_screen("HaveHelp")
+                        app.onClickAccount("HaveHelp")
                 Button:
                     text: "Account"
                     on_release:
-                        app.change_screen("AccountLoginPage")
+                        app.onClickAccount("AccountDetailPage")
