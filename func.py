@@ -37,7 +37,7 @@ def newProduct(user_id, product_type, quantity, product_description, address, la
     mycursor.execute("use covidApp")
     mycursor.execute(f"INSERT INTO productInfo "
                      f"(product_id, user_id, product_type, quantity, product_description, address, landmark, name) VALUES "
-                     f"({product_id}, {user_id}, '{product_type}', {quantity}, '{product_description}', '{address}', '{landmark}, {name}')")
+                     f"({product_id}, {user_id}, '{product_type}', {quantity}, '{product_description}', '{address}', '{landmark}', '{name}')")
     mydb.commit()
 
 
