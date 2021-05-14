@@ -187,4 +187,12 @@ class MainApp(App):
             for i in range(productNumber+1, 10):
                 self.root.ids["HaveHelp"].ids[f"Product{str(i + 1)}"].text = "Not Available"
 
+    def updateProductPageUI(self, productData):
+        sellerUserId = productData[2]
+        sellerAllData = func.giveSellerData(sellerUserId)
+
+
+
+        MainApp.change_screen(self, "ProductPage")
+
 MainApp().run()

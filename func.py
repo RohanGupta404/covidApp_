@@ -105,3 +105,7 @@ def giveProductInfo(accountUserId):
     mycursor.execute("Use covidApp")
     mycursor.execute(f"SELECT name, Quantity, Landmark FROM productInfo WHERE User_ID={accountUserId} LIMIT 10")
     return mycursor.fetchall()
+
+
+def giveSellerData(sellerUserId):
+    pass
