@@ -154,6 +154,7 @@ class MainApp(App):
         func.newProduct(accountUserId, productType, productQuantity, productDescription, productAddress,
                         productLandmark, productName)
 
+        MainApp.UpdateProductListOnHaveHelp(self)
         MainApp.change_screen(self, "HaveHelp")
 
     def onClickAccount(self, screen_name):
@@ -164,6 +165,8 @@ class MainApp(App):
         else:
             if CurrentScreen == "HaveHelp":
                 MainApp.UpdateProductListOnHaveHelp(self)
+            else:
+                MainApp.updateAcountDetialUI(self)
             MainApp.change_screen(self, screen_name)
 
     def AccountLogout(self):
