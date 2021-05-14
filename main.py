@@ -187,8 +187,8 @@ class MainApp(App):
             for i in range(productNumber+1, 10):
                 self.root.ids["HaveHelp"].ids[f"Product{str(i + 1)}"].text = "Not Available"
 
-    def updateProductPageUI(self, productData):
-        sellerUserId = productData[2]
+    def updateProductPageUI(self, productData, productNumber):
+        sellerUserId = productData[productNumber-1][2]
         sellerAllData = func.giveSellerData(sellerUserId)
 
 
