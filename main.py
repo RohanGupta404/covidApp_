@@ -181,9 +181,9 @@ class MainApp(App):
             listOfProducts = func.giveProductInfo(accountUserId)
             for productNumber in range(len(listOfProducts)):
                 product = listOfProducts[productNumber]
-                self.root.ids["HaveHelp"].ids[f"Product{str(productNumber+1)}"].text = f"NAME:    {str(product[0])}\n" \
-                                                                                     f"PRODUCT:    {str(product[1])}\n" \
-                                                                                     f"LandMark:    {str(product[2])} "
+                self.root.ids["HaveHelp"].ids[f"Product{str(productNumber+1)}"].text = f"NAME:    {str(product[8])}\n" \
+                                                                                     f"PRODUCT:    {str(product[4])}\n" \
+                                                                                     f"LandMark:    {str(product[7])} "
             for i in range(productNumber+1, 10):
                 self.root.ids["HaveHelp"].ids[f"Product{str(i + 1)}"].text = "Not Available"
 
