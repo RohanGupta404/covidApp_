@@ -178,6 +178,7 @@ class MainApp(App):
         if not accountUserId:
             pass
         else:
+            global listOfProducts
             listOfProducts = func.giveProductInfo(accountUserId)
             for productNumber in range(len(listOfProducts)):
                 product = listOfProducts[productNumber]
@@ -187,11 +188,20 @@ class MainApp(App):
             for i in range(productNumber+1, 10):
                 self.root.ids["HaveHelp"].ids[f"Product{str(i + 1)}"].text = "Not Available"
 
-    def updateProductPageUI(self, productData, productNumber):
-        sellerUserId = productData[productNumber-1][2]
+    def updateProductPageUI(self, productNumber):
+        productData = listOfProducts[productNumber-1]
+        sellerUserId = productData[2]
         sellerAllData = func.giveSellerData(sellerUserId)
 
-
+        self.root.ids["ProductPage"].ids["sellerName"].text = f"NAME OF SELLER : {sellerAllData[4]}"
+        self.root.ids["ProductPage"].ids["productName"].text = f"PRODUCT NAME : {productData[8]}"
+        self.root.ids["ProductPage"].ids["productType"].text = f"PRODUCT TYPE : {productData[3]}"
+        self.root.ids["ProductPage"].ids["quantity"].text = f"QUANTITY : {productData[4]}"
+        self.root.ids["ProductPage"].ids["productDescription"].text = f"PRODUCT DESCRIPTION : {productData[5]}"
+        self.root.ids["ProductPage"].ids["productAddress"].text = f"PRODUCT ADDRESS : {productData[6]}"
+        self.root.ids["ProductPage"].ids["landmark"].text = f"LANDMARK : {productData[7]}"
+        self.root.ids["ProductPage"].ids["sellerNumber"].text = f"SELLER PHONE NO : {sellerAllData[5]}"
+        self.root.ids["ProductPage"].ids["sellerEmail"].text = f"E-MAIL : {sellerAllData[2]}"
 
         MainApp.change_screen(self, "ProductPage")
 

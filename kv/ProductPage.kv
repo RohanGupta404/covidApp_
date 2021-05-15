@@ -8,26 +8,66 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
+
         GridLayout:
             rows:2
             pos_hint:{"top": 1.1,"right":1}
-            size_hint:1,.5
+            size_hint: 1, 0.5
             ImageButton:
                 source: "pics/Oxygen Cylinder.jpeg"
                 on_release:
                     print("OPENS PRODUCT's IMAGE")
-        GridLayout:
 
-            cols: 2
-            pos_hint: {"top": .34, "right": .8}
-            size_hint: .6, .06
+        GridLayout:
+            rows: 9
+            pos_hint: {"top": .5, "right": .8}
+            size_hint: .6, .3
 
             Label:
                 color: 0, 0, 0, 1
-                size_hint: 0.5, 1
-                font_size: '18sp'
-                size_hint: 1, .6
-                text: "NAME OF SELLER : Melon Husk\nPRODUCT NAME : Oxygen\nPRODUCT TYPE : Utility\nQUANTITY : 1k\nPRODUCT DESCRIPTION : Breathe this and\nSave your fucking lives\nPRODUCT ADDRESS :Wherever the hell you\nwant it to be \nLANNDMARK :Told You Already \nSELLER PHONE NO. :123456789\nE-MAIL : Mail it on\ntesla@husk.com"
+                text: "NAME OF SELLER : "
+                id: sellerName
+                name: "sellerName"
+            Label:
+                color: 0, 0, 0, 1
+                text: "PRODUCT NAME : "
+                id: productName
+                name: "productName"
+            Label:
+                color: 0, 0, 0, 1
+                text: "PRODUCT TYPE : "
+                id: productType
+                name: "productType"
+            Label:
+                color: 0, 0, 0, 1
+                text: "QUANTITY : "
+                id: quantity
+                name: "quantity"
+            Label:
+                color: 0, 0, 0, 1
+                text: "PRODUCT DESCRIPTION : "
+                id: productDescription
+                name: "productDescription"
+            Label:
+                color: 0, 0, 0, 1
+                text: "PRODUCT ADDRESS : "
+                id: productAddress
+                name: "productAddress"
+            Label:
+                color: 0, 0, 0, 1
+                text: "LANDMARK : "
+                id: landmark
+                name: "landmark"
+            Label:
+                color: 0, 0, 0, 1
+                text: "SELLER PHONE NO : "
+                id: sellerNumber
+                name: "sellerNumber"
+            Label:
+                color: 0, 0, 0, 1
+                text: "E-MAIL : "
+                id: sellerEmail
+                name: "sellerEmail"
         GridLayout:
             canvas:
                 Color:

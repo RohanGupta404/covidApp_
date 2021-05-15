@@ -108,4 +108,7 @@ def giveProductInfo(accountUserId):
 
 
 def giveSellerData(sellerUserId):
-    pass
+    mycursor = mydb.cursor()
+    mycursor.execute("Use covidApp")
+    mycursor.execute(f"SELECT * FROM sellerInfo WHERE UserId={sellerUserId} LIMIT 1")
+    return mycursor.fetchone()
