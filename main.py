@@ -180,6 +180,7 @@ class MainApp(App):
         else:
             global listOfProducts
             listOfProducts = func.giveProductInfo(accountUserId)
+            productNumber = -1
             for productNumber in range(len(listOfProducts)):
                 product = listOfProducts[productNumber]
                 self.root.ids["HaveHelp"].ids[f"Product{str(productNumber+1)}"].text = f"NAME:    {str(product[8])}\n" \
@@ -204,5 +205,6 @@ class MainApp(App):
         self.root.ids["ProductPage"].ids["sellerEmail"].text = f"E-MAIL : {sellerAllData[2]}"
 
         MainApp.change_screen(self, "ProductPage")
+
 
 MainApp().run()
