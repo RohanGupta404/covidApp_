@@ -178,19 +178,22 @@ class MainApp(App):
         if not accountUserId:
             pass
         else:
-            global listOfProducts
-            listOfProducts = func.giveProductInfo(accountUserId)
+            global listOfProductsHaveHelp
+            listOfProductsHaveHelp = func.giveProductInfo(accountUserId)
             productNumber = -1
-            for productNumber in range(len(listOfProducts)):
-                product = listOfProducts[productNumber]
+            for productNumber in range(len(listOfProductsHaveHelp)):
+                product = listOfProductsHaveHelp[productNumber]
                 self.root.ids["HaveHelp"].ids[f"Product{str(productNumber+1)}"].text = f"NAME:    {str(product[8])}\n" \
                                                                                      f"PRODUCT:    {str(product[4])}\n" \
                                                                                      f"LandMark:    {str(product[7])} "
             for i in range(productNumber+1, 10):
                 self.root.ids["HaveHelp"].ids[f"Product{str(i + 1)}"].text = "Not Available"
 
-    def updateProductPageUI(self, productNumber):
-        productData = listOfProducts[productNumber-1]
+    def updateProductPageUI(self, productNumber, HaveHelpOrHomeScreen):
+        if HaveHelpOrHomeScreen == "HaveHelp":
+            productData = listOfProductsHaveHelp[productNumber - 1]
+        else:
+            productData = listOfProductsHomeScreen[productNumber - 1]
         sellerUserId = productData[2]
         sellerAllData = func.giveSellerData(sellerUserId)
 
@@ -205,6 +208,47 @@ class MainApp(App):
         self.root.ids["ProductPage"].ids["sellerEmail"].text = f"E-MAIL : {sellerAllData[2]}"
 
         MainApp.change_screen(self, "ProductPage")
+
+    def DefaultProductListOnHomeScreen(self):
+        global listOfProductsHomeScreen
+        listOfProductsHomeScreen = func.defaultProductListForHomeScreen()
+        productNumber = -1
+        for productNumber in range(len(listOfProductsHomeScreen)):
+            product = listOfProductsHomeScreen[productNumber]
+            self.root.ids["HomeScreen"].ids[f"Product{str(productNumber + 1)}"].text = f"NAME:    {str(product[8])}\n" \
+                                                                                     f"PRODUCT:    {str(product[4])}\n" \
+                                                                                     f"LandMark:    {str(product[7])} "
+        for i in range(productNumber + 1, 10):
+            self.root.ids["HomeScreen"].ids[f"Product{str(i + 1)}"].text = "Not Available"
+
+        MainApp.change_screen(self, "HomeScreen")
+
+    def UpdateProductListOnHomeScreen(self, productType, productDistance):
+        global pType, pDistance
+        pType = productType
+        pDistance = productDistance
+
+        global listOfProductsHomeScreen
+        listOfProductsHomeScreen = func.UpdateProductListForHomeScreen(pType, pDistance)
+        productNumber = -1
+        for productNumber in range(len(listOfProductsHomeScreen)):
+            product = listOfProductsHomeScreen[productNumber]
+            self.root.ids["HomeScreen"].ids[f"Product{str(productNumber + 1)}"].text = f"NAME:    {str(product[8])}\n" \
+                                                                                       f"PRODUCT:    {str(product[4])}\n" \
+                                                                                       f"LandMark:    {str(product[7])} "
+        for i in range(productNumber + 1, 10):
+            self.root.ids["HomeScreen"].ids[f"Product{str(i + 1)}"].text = "Not Available"
+
+    def UpdateAccountDetailDatabase(self):
+        name = self.root.ids["EditAccountPage"].ids["userName"].text
+        password = self.root.ids["EditAccountPage"].ids["userPassword"].text
+        phoneNumber = self.root.ids["EditAccountPage"].ids["userPhoneNumber"].text
+        address = self.root.ids["EditAccountPage"].ids["userAddress"].text
+        landmark = self.root.ids["EditAccountPage"].ids["userLandmark"].text
+
+        func.UpdateAccountDetailDatabase(accountUserId, password, name, phoneNumber, address, landmark)
+
+        MainApp.change_screen(self, "AccountDetailPage")
 
 
 MainApp().run()

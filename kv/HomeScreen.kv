@@ -30,26 +30,20 @@
                     text: "Bed"
                     size_hint_y: None
                     height: 30
+                    on_release:
+                        app.UpdateProductListOnHomeScreen("Bed", "None")
                 Button:
-                    text: "Medecin"
+                    text: "Medicen"
                     size_hint_y: None
                     height: 30
+                    on_release:
+                        app.UpdateProductListOnHomeScreen("Medicen", "None")
                 Button:
                     text: "Oxygen"
                     size_hint_y: None
                     height: 30
-                Button:
-                    text: "Bear"
-                    size_hint_y: None
-                    height: 30
-                Button:
-                    text: "Rum"
-                    size_hint_y: None
-                    height: 30
-                Button:
-                    text: "Vodka"
-                    size_hint_y: None
-                    height: 30
+                    on_release:
+                        app.UpdateProductListOnHomeScreen("Oxygen", "None")
 
         GridLayout:
             cols: 2
@@ -71,26 +65,38 @@
                     text: "5 km"
                     size_hint_y: None
                     height: 30
+                    on_release:
+                        app.UpdateProductListOnHomeScreen("None", "5km")
                 Button:
                     text: "10 km"
                     size_hint_y: None
                     height: 30
+                    on_release:
+                        app.UpdateProductListOnHomeScreen("None", "10km")
                 Button:
                     text: "15 km"
                     size_hint_y: None
                     height: 30
+                    on_release:
+                        app.UpdateProductListOnHomeScreen("None", "15km")
                 Button:
                     text: "20 km"
                     size_hint_y: None
                     height: 30
+                    on_release:
+                        app.UpdateProductListOnHomeScreen("None", "20km")
                 Button:
                     text: "25 km"
                     size_hint_y: None
                     height: 30
+                    on_release:
+                        app.UpdateProductListOnHomeScreen("None", "25km")
                 Button:
                     text: "30 km"
                     size_hint_y: None
                     height: 30
+                    on_release:
+                        app.UpdateProductListOnHomeScreen("None", "30km")
 
         GridLayout:
             cols: 3
@@ -104,11 +110,85 @@
                 pos_hint: {"top": 0.7, "left": 1}
                 size_hint: 1, 0.3
                 Button:
-                    text: "NAME:        Rohan Gupta\nPRODUCT:      Bed\nDISTANCE:    12Km"
+                    text: ""
                     size_hint_y: None
                     height: 60
+                    id: Product1
+                    name: "Product1"
                     on_release:
-                        app.change_screen("ProductPage")
+                        app.updateProductPageUI(1, "HomeScreen")
+                Button:
+                    text: ""
+                    size_hint_y: None
+                    height: 60
+                    id: Product2
+                    name: "Product2"
+                    on_release:
+                        app.updateProductPageUI(2, "HomeScreen")
+                Button:
+                    text: ""
+                    size_hint_y: None
+                    height: 60
+                    id: Product3
+                    name: "Product3"
+                    on_release:
+                        app.updateProductPageUI(3, "HomeScreen")
+                Button:
+                    text: ""
+                    size_hint_y: None
+                    height: 60
+                    id: Product4
+                    name: "Product4"
+                    on_release:
+                        app.updateProductPageUI(4, "HomeScreen")
+                Button:
+                    text: ""
+                    size_hint_y: None
+                    height: 60
+                    id: Product5
+                    name: "Product5"
+                    on_release:
+                        app.updateProductPageUI(5, "HomeScreen")
+                Button:
+                    text: ""
+                    size_hint_y: None
+                    height: 60
+                    id: Product6
+                    name: "Product6"
+                    on_release:
+                        app.updateProductPageUI(6, "HomeScreen")
+                Button:
+                    text: ""
+                    size_hint_y: None
+                    height: 60
+                    id: Product7
+                    name: "Product7"
+                    on_release:
+                        app.updateProductPageUI(7, "HomeScreen")
+                Button:
+                    text: ""
+                    size_hint_y: None
+                    height: 60
+                    id: Product8
+                    name: "Product8"
+                    on_release:
+                        app.updateProductPageUI(8, "HomeScreen")
+                Button:
+                    text: ""
+                    size_hint_y: None
+                    height: 60
+                    id: Product9
+                    name: "Product9"
+                    on_release:
+                        app.updateProductPageUI(9, "HomeScreen")
+                Button:
+                    text: ""
+                    size_hint_y: None
+                    height: 60
+                    id: Product10
+                    name: "Product10"
+                    on_release:
+                        app.updateProductPageUI(10, "HomeScreen")
             Label:
                 size_hint: 0.1, 0.35
                 text: ""
@@ -130,7 +210,7 @@
                 Button:
                     text: "Home"
                     on_release:
-                        app.change_screen("HomeScreen")
+                        app.DefaultProductListOnHomeScreen()
                 Button:
                     text: "Have Help"
                     on_release:

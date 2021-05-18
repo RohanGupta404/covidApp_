@@ -112,3 +112,46 @@ def giveSellerData(sellerUserId):
     mycursor.execute("Use covidApp")
     mycursor.execute(f"SELECT * FROM sellerInfo WHERE UserId={sellerUserId} LIMIT 1")
     return mycursor.fetchone()
+
+
+def defaultProductListForHomeScreen():
+    callDatabase()
+    mycursor = mydb.cursor()
+    mycursor.execute("Use covidApp")
+    mycursor.execute(f"SELECT * FROM productInfo LIMIT 10")
+    return mycursor.fetchall()
+
+
+def UpdateProductListForHomeScreen(pType, pDistance):
+    callDatabase()
+    mycursor = mydb.cursor()
+    mycursor.execute("Use covidApp")
+    if pType != "None":
+        mycursor.execute(f"SELECT * FROM productInfo WHERE Product_type = '{pType}' LIMIT 10")
+        return mycursor.fetchall()
+    else:
+        mycursor.execute(f"SELECT * FROM productInfo LIMIT 10")
+        return mycursor.fetchall()
+
+
+def UpdateAccountDetailDatabase(userid, password, name, phoneNumber, address, landmark):
+    callDatabase()
+    mycursor = mydb.cursor()
+    mycursor.execute("Use covidApp")
+
+    mycursor.execute("SET SQL_SAFE_UPDATES = 0")
+
+    if password != "":
+        password = hashlib.sha256(str(password).encode('utf-8'))
+        password = password.hexdigest()
+        mycursor.execute(f"UPDATE sellerInfo SET password = '{password}' WHERE userid = {userid}")
+    if name != "":
+        mycursor.execute(f"UPDATE sellerInfo SET name = '{name}' WHERE userid = {userid}")
+    if phoneNumber != "":
+        mycursor.execute(f"UPDATE sellerInfo SET phoneNumber = '{phoneNumber}' WHERE userid = {userid}")
+    if address != "":
+        mycursor.execute(f"UPDATE sellerInfo SET address = '{address}' WHERE userid = {userid}")
+    if landmark != "":
+        mycursor.execute(f"UPDATE sellerInfo SET landmark = '{landmark}' WHERE userid = {userid}")
+
+    mydb.commit()

@@ -31,27 +31,37 @@
                     Label:
                         text: "Name: "
                     TextInput:
+                        id: userName
+                        name: "userName"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Phone Number: "
                     TextInput:
+                        id: userPhoneNumber
+                        name: "userPhoneNumber"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Address: "
                     TextInput:
+                        id: userAddress
+                        name: "userAddress"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Landmark: "
                     TextInput:
+                        id: userLandmark
+                        name: "userLandmark"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Password: "
                     TextInput:
                         password: True
+                        id: userPassword
+                        name: "userPassword"
                 GridLayout:
                     cols: 2
                     Label:
@@ -64,7 +74,7 @@
                     Button:
                         text: "submit"
                         on_release:
-                            app.change_screen("AccountDetailPage")
+                            app.UpdateAccountDetailDatabase()
             Label:
                 text: ""
                 size_hint: .08, 1
@@ -85,7 +95,7 @@
                 Button:
                     text: "Home"
                     on_release:
-                        app.change_screen("HomeScreen")
+                        app.DefaultProductListOnHomeScreen()
                 Button:
                     text: "Have Help"
                     on_release:
