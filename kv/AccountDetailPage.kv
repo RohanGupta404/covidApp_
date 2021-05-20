@@ -4,14 +4,23 @@
     FloatLayout:
         canvas:
             Color:
-                rgb: utils.get_color_from_hex("CAAFAA")
+                rgb: utils.get_color_from_hex("FFFFFF")
             Rectangle:
                 size: self.size
                 pos: self.pos
         GridLayout:
-            rows:2
+            rows:1
             pos_hint:{"top": 1,"right":1}
-            size_hint:1,.4
+            size_hint:1,.08
+            Button:
+                size_hint: 1, 1
+                text: "MY ACCOUNT"
+                on_release:
+                    print(" MY ACCOUNT ")
+        GridLayout:
+            rows:2
+            pos_hint:{"top": .925,"right":1}
+            size_hint:1,.5
             ImageButton:
                 size_hint: 1, 1
                 source: "pics/EM.jpeg"
@@ -22,10 +31,11 @@
                 text: "Edit Account"
                 on_release:
                     app.change_screen("EditAccountPage")
+
         GridLayout:
 
             cols: 2
-            pos_hint: {"top": .5, "right": .8}
+            pos_hint: {"top": .35, "right": .8}
             size_hint: .6, .06
 
             Label:
@@ -38,34 +48,34 @@
                 text: ""
         GridLayout:
             rows:1
-            pos_hint:{"top": .3,"right":.72}
-            size_hint:1,.1
+            pos_hint:{"top": .2,"right":.72}
+            size_hint:.9,.1
             ImageButton:
-                source:"pics/LO.jpeg"
+                source:"pics/logouticon.png"
                 on_release:
                     app.AccountLogout()
         GridLayout:
             canvas:
                 Color:
-                    rgb: utils.get_color_from_hex("2097F3")
+                    rgb: 2.55,2.55,2.55
                 Rectangle:
                     size: self.size
                     pos: self.pos
             cols: 3
-            pos_hint: {"top": .10, "left": 1.4}
-            size_hint: 1, .1
+            pos_hint: {"top": .08, "left": 1.4}
+            size_hint: 1, .08
 
             GridLayout:
                 cols: 3
-                Button:
-                    text: "Home"
+                ImageButton:
+                    source: "pics/Home2.png"
                     on_release:
                         app.DefaultProductListOnHomeScreen()
-                Button:
-                    text: "Have Help"
+                ImageButton:
+                    source: "pics/Havehelp6.png"
                     on_release:
                         app.onClickAccount("HaveHelp")
-                Button:
-                    text: "Account"
+                ImageButton:
+                    source: "pics/myaccount3.jpeg"
                     on_release:
                         app.onClickAccount("AccountDetailPage")

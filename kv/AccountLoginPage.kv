@@ -8,7 +8,15 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
-
+        GridLayout:
+            rows:1
+            pos_hint:{"top": 1,"right":1}
+            size_hint:1,.08
+            Button:
+                size_hint: 1, 1
+                text: "LOGIN"
+                on_release:
+                    print(" LOGIN/SIGNUP PAGE ")
         GridLayout:
             cols: 3
             pos_hint: {"top": .86, "left": 1.4}
@@ -19,7 +27,7 @@
             GridLayout:
                 canvas:
                     Color:
-                        rgb: utils.get_color_from_hex("2097F3")
+                        rgb: utils.get_color_from_hex("FFFFFF")
                     Rectangle:
                         size: self.size
                         pos: self.pos
@@ -29,14 +37,16 @@
                 GridLayout:
                     cols: 2
                     Label:
-                        text: "Email: "
+                        text: "E-MAIL : "
+                        color: 0,0,0,1
                     TextInput:
                         id: AccountLoginEmail
                         name: "AccountLoginEmail"
                 GridLayout:
                     cols: 2
                     Label:
-                        text: "Password: "
+                        text: "PASSWORD : "
+                        color: 0,0,0,1
                     TextInput:
                         password: True
                         id: AccountLoginPassword
@@ -45,11 +55,11 @@
                     cols: 2
                     spacing: 5
                     Button:
-                        text: "signup"
+                        text: "SIGNUP"
                         on_release:
                             app.change_screen("AccountSignupPage")
                     Button:
-                        text: "submit"
+                        text: "SUBMIT"
                         on_release:
                             app.LoginEmailPasswordCheck()
             Label:
@@ -59,25 +69,25 @@
         GridLayout:
             canvas:
                 Color:
-                    rgb: utils.get_color_from_hex("2097F3")
+                    rgb: 2.55,2.55,2.55
                 Rectangle:
                     size: self.size
                     pos: self.pos
             cols: 3
-            pos_hint: {"top": .10, "left": 1.4}
-            size_hint: 1, .1
+            pos_hint: {"top": .08, "left": 1.4}
+            size_hint: 1, .08
 
             GridLayout:
                 cols: 3
-                Button:
-                    text: "Home"
+                ImageButton:
+                    source: "pics/Home2.png"
                     on_release:
                         app.DefaultProductListOnHomeScreen()
-                Button:
-                    text: "Have Help"
+                ImageButton:
+                    source: "pics/Havehelp6.png"
                     on_release:
                         app.onClickAccount("HaveHelp")
-                Button:
-                    text: "Account"
+                ImageButton:
+                    source: "pics/myaccount3.jpeg"
                     on_release:
                         app.onClickAccount("AccountDetailPage")

@@ -11,8 +11,18 @@
                 pos: self.pos
 
         GridLayout:
+            rows:1
+            pos_hint:{"top": 1,"right":1}
+            size_hint:1,.08
+            Button:
+                size_hint: 1, 1
+                text: "HOME SCREEN"
+                on_release:
+                    print(" HOME SCREEN ")
+
+        GridLayout:
             cols: 2
-            pos_hint: {"top": .96, "left": 1.4}
+            pos_hint: {"top": .90, "left": 1.4}
             size_hint: .8, .06
 
             Label:
@@ -21,6 +31,7 @@
                 font_size: '18sp'
                 size_hint: 1, .6
                 text: "Help Required"
+                background_color: 1,1,1,1
 
             DropDown:
                 auto_dismiss: False
@@ -47,7 +58,7 @@
 
         GridLayout:
             cols: 2
-            pos_hint: {"top": .88, "left": 1}
+            pos_hint: {"top": .80, "left": 1}
             size_hint: .8, .06
 
             Label:
@@ -197,25 +208,25 @@
         GridLayout:
             canvas:
                 Color:
-                    rgb: utils.get_color_from_hex("2097F3")
+                    rgb: 2.55,2.55,2.55
                 Rectangle:
                     size: self.size
                     pos: self.pos
             cols: 3
-            pos_hint: {"top": .10, "left": 1.4}
-            size_hint: 1, .1
+            pos_hint: {"top": .08, "left": 1.4}
+            size_hint: 1, .08
 
             GridLayout:
                 cols: 3
-                Button:
-                    text: "Home"
+                ImageButton:
+                    source: "pics/Home2.png"
                     on_release:
                         app.DefaultProductListOnHomeScreen()
-                Button:
-                    text: "Have Help"
+                ImageButton:
+                    source: "pics/Havehelp6.png"
                     on_release:
                         app.onClickAccount("HaveHelp")
-                Button:
-                    text: "Account"
+                ImageButton:
+                    source: "pics/myaccount3.jpeg"
                     on_release:
                         app.onClickAccount("AccountDetailPage")

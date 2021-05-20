@@ -8,7 +8,15 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
-
+        GridLayout:
+            rows:1
+            pos_hint:{"top": 1,"right":1}
+            size_hint:1,.08
+            Button:
+                size_hint: 1, 1
+                text: "EDIT ACCOUNT"
+                on_release:
+                    print("")
         GridLayout:
             cols: 3
             pos_hint: {"top": .9, "left": 1.4}
@@ -19,7 +27,7 @@
             GridLayout:
                 canvas:
                     Color:
-                        rgb: utils.get_color_from_hex("2097F3")
+                        rgb: utils.get_color_from_hex("FFFFFF")
                     Rectangle:
                         size: self.size
                         pos: self.pos
@@ -29,35 +37,40 @@
                 GridLayout:
                     cols: 2
                     Label:
-                        text: "Name: "
+                        text: "NAME : "
+                        color: 0,0,0,1
                     TextInput:
                         id: userName
                         name: "userName"
                 GridLayout:
                     cols: 2
                     Label:
-                        text: "Phone Number: "
+                        text: "PHONE NUMBER : "
+                        color: 0,0,0,1
                     TextInput:
                         id: userPhoneNumber
                         name: "userPhoneNumber"
                 GridLayout:
                     cols: 2
                     Label:
-                        text: "Address: "
+                        text: "ADDRESS: "
+                        color: 0,0,0,1
                     TextInput:
                         id: userAddress
                         name: "userAddress"
                 GridLayout:
                     cols: 2
                     Label:
-                        text: "Landmark: "
+                        text: "LANDMARK : "
+                        color: 0,0,0,1
                     TextInput:
                         id: userLandmark
                         name: "userLandmark"
                 GridLayout:
                     cols: 2
                     Label:
-                        text: "Password: "
+                        text: "PASSWORD : "
+                        color: 0,0,0,1
                     TextInput:
                         password: True
                         id: userPassword
@@ -65,14 +78,15 @@
                 GridLayout:
                     cols: 2
                     Label:
-                        text: "Confirm Password: "
+                        text: "CONFIRM PASSWORD : "
+                        color: 0,0,0,1
                     TextInput:
                         password: True
                 GridLayout:
                     cols: 1
                     spacing: 20
                     Button:
-                        text: "submit"
+                        text: "SUBMIT"
                         on_release:
                             app.UpdateAccountDetailDatabase()
             Label:
@@ -82,25 +96,25 @@
         GridLayout:
             canvas:
                 Color:
-                    rgb: utils.get_color_from_hex("2097F3")
+                    rgb: 2.55,2.55,2.55
                 Rectangle:
                     size: self.size
                     pos: self.pos
             cols: 3
-            pos_hint: {"top": .10, "left": 1.4}
-            size_hint: 1, .1
+            pos_hint: {"top": .08, "left": 1.4}
+            size_hint: 1, .08
 
             GridLayout:
                 cols: 3
-                Button:
-                    text: "Home"
+                ImageButton:
+                    source: "pics/Home2.png"
                     on_release:
                         app.DefaultProductListOnHomeScreen()
-                Button:
-                    text: "Have Help"
+                ImageButton:
+                    source: "pics/Havehelp6.png"
                     on_release:
                         app.onClickAccount("HaveHelp")
-                Button:
-                    text: "Account"
+                ImageButton:
+                    source: "pics/myaccount3.jpeg"
                     on_release:
                         app.onClickAccount("AccountDetailPage")

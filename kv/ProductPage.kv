@@ -71,7 +71,7 @@
         GridLayout:
             canvas:
                 Color:
-                    rgb:utils.get_color_from_hex("67697C")
+                    rgb:utils.get_color_from_hex("CAAFAA")
                 Rectangle:
                     size: self.size
                     pos:self.pos
@@ -79,31 +79,31 @@
             pos_hint:{"top": .7,"right":1}
             size_hint:1,.17
             ImageButton:
-                source:"pics/EM.jpeg"
+                source:"pics/EM7.png"
                 on_release:
                     print("OPEN SELLER's IMAGE")
         GridLayout:
             canvas:
                 Color:
-                    rgb: utils.get_color_from_hex("2097F3")
+                    rgb: 2.55,2.55,2.55
                 Rectangle:
                     size: self.size
                     pos: self.pos
             cols: 3
-            pos_hint: {"top": .10, "left": 1.4}
-            size_hint: 1, .1
+            pos_hint: {"top": .08, "left": 1.4}
+            size_hint: 1, .08
 
             GridLayout:
                 cols: 3
-                Button:
-                    text: "Home"
+                ImageButton:
+                    source: "pics/Home2.png"
                     on_release:
                         app.DefaultProductListOnHomeScreen()
-                Button:
-                    text: "Have Help"
+                ImageButton:
+                    source: "pics/Havehelp6.png"
                     on_release:
                         app.onClickAccount("HaveHelp")
-                Button:
-                    text: "Account"
+                ImageButton:
+                    source: "pics/myaccount3.jpeg"
                     on_release:
                         app.onClickAccount("AccountDetailPage")
