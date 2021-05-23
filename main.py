@@ -250,5 +250,31 @@ class MainApp(App):
 
         MainApp.change_screen(self, "AccountDetailPage")
 
+    def UpdateProductDetailInDatabaseSetId(self, productNumber):
+        global product_id_for_update_or_delete
+        product_id_for_update_or_delete = listOfProductsHaveHelp[productNumber - 1][1]
+
+        MainApp.change_screen(self, "ProductEditDeletePage")
+
+    def UpdateProductDetailInDatabase(self):
+        product_id = product_id_for_update_or_delete
+
+        Name = self.root.ids["ProductEditDeletePage"].ids["name"].text
+        Description = self.root.ids["ProductEditDeletePage"].ids["description"].text
+        Quantity = self.root.ids["ProductEditDeletePage"].ids["quantity"].text
+        Address = self.root.ids["ProductEditDeletePage"].ids["address"].text
+        Landmark = self.root.ids["ProductEditDeletePage"].ids["landmark"].text
+
+        func.UpdateProductDetailInDatabase(product_id, Name, Description, Quantity, Address, Landmark)
+
+        MainApp.UpdateProductListOnHaveHelp(self)
+        MainApp.change_screen(self, "HaveHelp")
+
+    def DeleteProductFromDatabase(self):
+        product_id = product_id_for_update_or_delete
+        func.DeleteProductFromDatabase(product_id)
+
+        MainApp.UpdateProductListOnHaveHelp(self)
+        MainApp.change_screen(self, "HaveHelp")
 
 MainApp().run()

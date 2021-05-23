@@ -155,3 +155,35 @@ def UpdateAccountDetailDatabase(userid, password, name, phoneNumber, address, la
         mycursor.execute(f"UPDATE sellerInfo SET landmark = '{landmark}' WHERE userid = {userid}")
 
     mydb.commit()
+
+
+def UpdateProductDetailInDatabase(product_id, name, description, quantity, address, landmark):
+    callDatabase()
+    mycursor = mydb.cursor()
+    mycursor.execute("Use covidApp")
+
+    mycursor.execute("SET SQL_SAFE_UPDATES = 0")
+
+    if name != "":
+        mycursor.execute(f"UPDATE productInfo SET name = '{name}' WHERE product_id = {product_id}")
+    if description != "":
+        mycursor.execute(f"UPDATE productInfo SET Product_Description = '{description}' WHERE product_id = {product_id}")
+    if quantity != "":
+        mycursor.execute(f"UPDATE productInfo SET Quantity = '{quantity}' WHERE product_id = {product_id}")
+    if address != "":
+        mycursor.execute(f"UPDATE productInfo SET Address = '{address}' WHERE product_id = {product_id}")
+    if landmark != "":
+        mycursor.execute(f"UPDATE productInfo SET Landmark = '{landmark}' WHERE product_id = {product_id}")
+
+    mydb.commit()
+
+
+def DeleteProductFromDatabase(product_id):
+    callDatabase()
+    mycursor = mydb.cursor()
+    mycursor.execute("USE covidApp")
+
+    mycursor.execute("SET SQL_SAFE_UPDATES = 0")
+    mycursor.execute(f"DELETE FROM productInfo WHERE product_id = {product_id}")
+
+    mydb.commit()

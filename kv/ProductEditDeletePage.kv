@@ -33,7 +33,7 @@
                     Rectangle:
                         size: self.size
                         pos: self.pos
-                rows: 8
+                rows: 7
                 padding: 40
                 spacing: 20
                 GridLayout:
@@ -41,61 +41,47 @@
                     Label:
                         text: "Name: "
                     TextInput:
+                        id: name
+                        name: "name"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Description: "
                     TextInput:
-                GridLayout:
-                    cols: 2
-                    Label:
-                        text: "Product Type: "
-                    DropDown:
-                        auto_dismiss: False
-                        size_hint: 1, .8
-                        Button:
-                            text: "Bed"
-                            size_hint_y: None
-                            height: 26
-                        Button:
-                            text: "Oxygen"
-                            size_hint_y: None
-                            height: 26
-                        Button:
-                            text: "Medicen"
-                            size_hint_y: None
-                            height: 26
+                        id: description
+                        name: "description"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Quantity: "
                     TextInput:
+                        id: quantity
+                        name: "quantity"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Address: "
-                    DropDown:
-                        auto_dismiss: False
-                        size_hint: 1, .8
-                        Button:
-                            text: "Orignal Address"
-                            size_hint_y: None
-                            height: 26
-                        TextInput:
-                            size_hint_y: None
-                            height: 26
+                    TextInput:
+                        id: address
+                        name: "address"
                 GridLayout:
                     cols: 2
                     Label:
                         text: "Landmark: "
                     TextInput:
+                        id: landmark
+                        name: "landmark"
                 GridLayout:
-                    cols: 1
+                    cols: 2
                     spacing: 20
+                    Button:
+                        text: "Delete"
+                        on_release:
+                            app.DeleteProductFromDatabase()
                     Button:
                         text: "submit"
                         on_release:
-                            app.change_screen("HaveHelp")
+                            app.UpdateProductDetailInDatabase()
             Label:
                 text: ""
                 size_hint: .08, 1
